@@ -106,11 +106,11 @@ Resources:
       HealthCheckPath: /health
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 5
-      HealthyThresholdCount: 2
+      HealthyThresholdCount: 1
       Name: !Sub '${EnvironmentName}-Mongo'
       Port: 80
       Protocol: HTTP
-      UnhealthyThresholdCount: 2
+      UnhealthyThresholdCount: 1
       VpcId:
         Fn::ImportValue:
            Fn::Sub: "${EnvironmentName}-VPC"
@@ -136,7 +136,7 @@ Resources:
       Cluster:
         Fn::ImportValue:
           Fn::Sub: "${EnvironmentName}-ECSCluster"
-      DesiredCount: '2'
+      DesiredCount: '1'
       TaskDefinition:
         Ref: TaskDefinition
       LoadBalancers:
