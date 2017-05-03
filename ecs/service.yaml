@@ -106,11 +106,11 @@ Resources:
       HealthCheckPath: /health
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 5
-      HealthyThresholdCount: 1
+      HealthyThresholdCount: 2
       Name: !Sub '${EnvironmentName}-Mongo'
       Port: 80
       Protocol: HTTP
-      UnhealthyThresholdCount: 1
+      UnhealthyThresholdCount: 2
       VpcId:
         Fn::ImportValue:
            Fn::Sub: "${EnvironmentName}-VPC"
